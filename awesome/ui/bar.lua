@@ -6,14 +6,19 @@ local taglist = require("ui.taglist")
 local tasklist = require("ui.tasklist")
 local set_wallpaper = require("ui.wallpaper")
 
-local mytextclock = wibox.widget{
+local date_widget = wibox.widget{
   format = "%A %e %B" ,
+  font = "noto bold 10",
+  widget = wibox.widget.textclock
+}
+local clock_widget = wibox.widget{
+  format = "%H:%M",
   font = "noto bold 10",
   widget = wibox.widget.textclock
 }
 
 local calendar = awful.widget.calendar_popup.month()
-calendar:attach(mytextclock, "tc")
+calendar:attach(date_widget, "tc")
 
 screen.connect_signal("property::geometry", set_wallpaper)
 beautiful.init(awesomeDir .. "theme.lua")
@@ -88,12 +93,13 @@ awful.screen.connect_for_each_screen(function(s)
 			s.mypromptbox,
 			s.mytasklist,
 		},
-		mytextclock, -- Middle widget
+		date_widget, -- Middle widget
 		{ -- Right widgets
 			spacing = 10,
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
-			s.mylayoutbox,
+      clock_widget,
+			s.mylayoutbox
 		},
 	})
 end)
