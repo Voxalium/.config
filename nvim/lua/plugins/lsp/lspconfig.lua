@@ -128,11 +128,11 @@ return {
 					filetypes = { "svelte" },
 				})
 			end,
-			--[[ ["omnisharp"] = function()
+			["omnisharp"] = function()
 				lspconfig["omnisharp"].setup({
 					capabilities = capabilities,
 					filetypes = { "cs" },
-					cmd = { vim.fn.stdpath("data") .. "\\mason\\bin\\omnisharp.cmd" },
+					cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
 					handlers = {
 						["textDocument/definition"] = require("omnisharp_extended").definition_handler,
 						["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
@@ -140,7 +140,7 @@ return {
 						["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
 					},
 				})
-			end, ]]
+			end,
 		})
 	end,
 }

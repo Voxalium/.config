@@ -4,6 +4,7 @@ local config = function()
 	telescope.setup({
 		defaults = {
 
+      file_ignore_patterns = {"node_modules"},
 			prompt_prefix = " ",
 			selection_caret = " ",
 			path_display = { "smart" },
@@ -34,7 +35,7 @@ local config = function()
 			},
 		},
 	})
-	--telescope.load_extension("fzf")
+	telescope.load_extension("fzf")
 	telescope.load_extension("project")
 	telescope.load_extension("software-licenses")
 end
