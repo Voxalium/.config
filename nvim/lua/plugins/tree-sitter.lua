@@ -18,6 +18,7 @@ return {
 				"gitignore",
 				"python",
 				"c",
+        "c_sharp",
 				"vim",
         "vimdoc",
         "luadoc",

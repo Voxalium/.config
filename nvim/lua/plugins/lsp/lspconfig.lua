@@ -139,6 +139,9 @@ return {
 						["textDocument/references"] = require("omnisharp_extended").references_handler,
 						["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
 					},
+					enable_roslyn_analyzers = true,
+					organize_imports_on_format = true,
+					enable_import_completion = true,
 				})
 			end,
 		})
